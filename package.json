@@ -6,6 +6,9 @@
   "name": "webpack-demo",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts":{
+    "bundle":"webpack"
+  },
   "dependencies": {
     "ajv-keywords": "^3.5.2",
     "acorn-import-assertions": "^1.8.0",
@@ -96,9 +99,6 @@
     "webpack-sources": "^3.2.2",
     "wildcard": "^2.0.0",
     "which": "^2.0.2"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
