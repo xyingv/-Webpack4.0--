@@ -1,12 +1,4 @@
-import cute from './cute.jpg';
-import style from './index.scss';
-import createAvatar from './createAvatar.js';
-
-createAvatar();
-
-var img=new Image();
-img.src=cute;
-img.classList.add(style.cute);
-
+import './index.scss';
 var root=document.getElementById('root');
-root.append(img);
+
+root.innerHTML='<i class="iconfont icon-spin">&#xe851;</i>';
