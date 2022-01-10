@@ -21,7 +21,15 @@ module.exports={
             }
         },{
             test:/\.scss$/,
-            use:['style-loader','css-loader','sass-loader','postcss-loader']
+            use:['style-loader',
+            {
+                loader: 'css-loader',
+                options:{
+                    importLoaders: 2,
+                    modules:true
+                }
+            }
+            ,'sass-loader','postcss-loader']
         }]
     }
 }
