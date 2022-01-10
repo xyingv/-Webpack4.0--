@@ -1,4 +1,4 @@
 import './index.scss';
 var root=document.getElementById('root');
 
-root.innerHTML='<i class="iconfont icon-spin">&#xe851;</i>';
+root.innerHTML='<i class="iconfont icon-spin"></i>';

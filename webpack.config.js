@@ -1,4 +1,7 @@
 const path=require('path');
+const Htmlwebpackplugin=require('html-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+
 module.exports={
     mode:'production',
     entry:{
@@ -8,6 +11,12 @@ module.exports={
         filename:'bundle.js',
         path:path.resolve(__dirname,'dist')
     },
+    plugins:[
+        new Htmlwebpackplugin({
+        template:'src/index.html'
+        }),
+        new CleanWebpackPlugin()
+    ],
     module:{
         rules:[{
             test:/\.(gif|png|jpg)$/,
