@@ -1,7 +1,9 @@
-import Header from './header';
-import Sidebar from './sidebar.js';
-import Content from './content.js';
+import cute from './cute.jpg';
+import './index.scss';
 
-new Header();
-new Sidebar();
-new Content();
+var img=new Image();
+img.src=cute;
+img.classList.add('cute');
+
+var root=document.getElementById('root');
+root.append(img);
