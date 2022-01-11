@@ -4,9 +4,9 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports={
     mode:'production',
+    devtool:'source-map',
     entry:{
-        main:'./src/index.js',
-        sub:'./src/index.js'
+        main:'./src/index.js'
     },
     output: {
         filename:'[name].js',
