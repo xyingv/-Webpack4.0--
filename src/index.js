@@ -1,4 +1,5 @@
-//tree shaking只支持ES module(import from)模块的引入
-//ES module模块底层是静态引入的形式，commonJS是动态引入。
-import {add} from './math.js';;
-add(1,2)
+//业务代码很大，N万行=>1打包文件太大，加载时间很长+2代码变更打包会重新加载所有代码
+console.log(_.join(['a','b','c'],'*****'))
+
+//将lodash拆分出来做全局引入
+//将原来一个文件拆成两个文件，可以并行加载。业务逻辑变更时只需动其中一个文件。

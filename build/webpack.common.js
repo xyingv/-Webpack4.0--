@@ -1,34 +1,21 @@
 const path=require('path');
 const Htmlwebpackplugin=require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-const webpack=require('webpack');
 
 module.exports={
-    mode:'production',
-    devtool:'cheap-source-map',
     entry:{
+        lodash:'./src/lodash.js',
         main:'./src/index.js'
-    },
-    devServer:{
-        static:false,
-        open:true,
-        // hot: 'only'//开启hout module replacement功能
-        // proxy:{} // 可跨域
-        // port:'8080 //本地打开的端口
-    },
-    output: {
-        filename:'[name].js',
-        path:path.resolve(__dirname,'dist')
     },
     plugins:[
         new Htmlwebpackplugin({
         template:'src/index.html'
         }),
-        new CleanWebpackPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
+        new CleanWebpackPlugin()
     ],
-    optimization:{
-        usedExports:true //哪些模块被使用了再打包
+    output: {
+        filename:'[name].js',
+        path:path.resolve(__dirname,'../dist')//build上一层目录的位置
     },
     module:{
         rules:[{
