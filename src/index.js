@@ -1,5 +1,10 @@
-//业务代码很大，N万行=>1打包文件太大，加载时间很长+2代码变更打包会重新加载所有代码
-console.log(_.join(['a','b','c'],'*****'))
-
-//将lodash拆分出来做全局引入
-//将原来一个文件拆成两个文件，可以并行加载。业务逻辑变更时只需动其中一个文件。
+function getComponent(){
+    return import('lodash').then(({default:_})=>{
+        var element=document.createElement('div');
+        element.innerHTML=_.join(['dell','lee'],'---')
+        return element;
+    })
+}
+getComponent().then(element=>{
+    document.body.appendChild(element)
+})

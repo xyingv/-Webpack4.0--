@@ -4,7 +4,6 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports={
     entry:{
-        lodash:'./src/lodash.js',
         main:'./src/index.js'
     },
     plugins:[
@@ -13,6 +12,11 @@ module.exports={
         }),
         new CleanWebpackPlugin()
     ],
+    optimization:{
+        splitChunks:{
+            chunks:'all'
+        }
+    },
     output: {
         filename:'[name].js',
         path:path.resolve(__dirname,'../dist')//build上一层目录的位置
