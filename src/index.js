@@ -1,11 +1,4 @@
-import "@babel/polyfill";
-
-import React,{Component} from "react";
-
-class App extends Component {
-    render(){
-        return <div>hello world</div>
-    }
-}
-
-React.render(<App />,document.getElementById('root'));
+//tree shaking只支持ES module(import from)模块的引入
+//ES module模块底层是静态引入的形式，commonJS是动态引入。
+import {add} from './math.js';;
+add(1,2)

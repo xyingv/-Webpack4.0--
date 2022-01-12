@@ -25,8 +25,11 @@ module.exports={
         template:'src/index.html'
         }),
         new CleanWebpackPlugin(),
-        // new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
     ],
+    optimization:{
+        usedExports:true //哪些模块被使用了再打包
+    },
     module:{
         rules:[{
             test:/\.js$/,
