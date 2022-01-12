@@ -1,6 +1,7 @@
 const path=require('path');
 const Htmlwebpackplugin=require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const webpack=require('webpack');
 
 module.exports={
     mode:'production',
@@ -9,13 +10,13 @@ module.exports={
         main:'./src/index.js'
     },
     devServer:{
-        contentBase:'./dist',
+        static:false,
         open:true,
+        // hot: 'only'//开启hout module replacement功能
         // proxy:{} // 可跨域
         // port:'8080 //本地打开的端口
     },
     output: {
-        publicPath:'/',//打包生成文件路径没有问题
         filename:'[name].js',
         path:path.resolve(__dirname,'dist')
     },
@@ -23,7 +24,8 @@ module.exports={
         new Htmlwebpackplugin({
         template:'src/index.html'
         }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        // new webpack.HotModuleReplacementPlugin()
     ],
     module:{
         rules:[{
@@ -47,6 +49,9 @@ module.exports={
                 }
             }
             ,'sass-loader','postcss-loader']
+        },{
+            test:/\.css$/,
+            use:['style-loader','css-loader','postcss-loader']
         },{
             test:/\.(eot|ttf|svg)$/,
             use:{
