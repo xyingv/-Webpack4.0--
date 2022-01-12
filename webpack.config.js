@@ -5,7 +5,7 @@ const webpack=require('webpack');
 
 module.exports={
     mode:'production',
-    devtool:'source-map',
+    devtool:'cheap-source-map',
     entry:{
         main:'./src/index.js'
     },
@@ -29,6 +29,10 @@ module.exports={
     ],
     module:{
         rules:[{
+            test:/\.js$/,
+            exclude:/node_modules/,
+            loader:'babel-loader'
+        },{
             test:/\.(gif|png|jpg)$/,
             use:{
                 loader:'url-loader',

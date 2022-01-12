@@ -1,6 +1,10 @@
 {
   "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@babel/plugin-transform-runtime": "^7.16.8",
+    "@babel/preset-env": "^7.16.8",
     "autoprefixer": "^10.4.2",
+    "babel-loader": "^8.2.3",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.5.1",
     "express": "^4.17.2",
@@ -25,6 +29,9 @@
     "middleware": "node server.js"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "@babel/runtime": "^7.16.7",
+    "@babel/runtime-corejs2": "^7.16.7",
     "acorn": "^8.7.0",
     "acorn-import-assertions": "^1.8.0",
     "ajv": "^6.12.6",
