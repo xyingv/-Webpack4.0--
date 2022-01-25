@@ -1,13 +1,12 @@
-import test from './test.js'
-console.log(test.name);
-
-// function getComponent(){
-//     return import(/* webpackChunkName:"lodash" */ 'lodash').then(({default:_})=>{
-//         var element=document.createElement('div');
-//         element.innerHTML=_.join(['dell','lee'],'---')
-//         return element;
-//     })
-// }
-// getComponent().then(element=>{
-//     document.body.appendChild(element)
-// })
+//懒加载
+async function getComponent(){
+    const {default:_}=await import(/* webpackChunkName:"lodash" */ 'lodash')
+    const element=document.createElement('div');
+    element.innerHTML=_.join(['dell','lee'],'---')
+    return element;
+}
+document.addEventListener('click',()=>{
+    getComponent().then(element=>{
+        document.body.appendChild(element)
+    })
+})
