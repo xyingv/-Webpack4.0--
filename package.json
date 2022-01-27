@@ -12,8 +12,12 @@
     "express": "^4.17.2",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "jquery": "^3.6.0",
+    "ladash": "^1.2.0",
     "lodash": "^4.17.21",
+    "mini-css-extract-plugin": "^2.5.2",
     "node-sass": "^7.0.1",
+    "optimize-css-assets-webpack-plugin": "^3.2.0",
     "postcss-loader": "^6.2.1",
     "sass-loader": "^12.4.0",
     "style-loader": "^3.3.1",
@@ -26,7 +30,8 @@
   },
   "name": "webpack-demo",
   "sideEffects": [
-    "@babel/polly-fill"
+    "@babel/polly-fill",
+    "*.css"
   ],
   "version": "1.0.0",
   "main": "index.js",

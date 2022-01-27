@@ -1,6 +1,6 @@
-document.addEventListener('click',()=>{
-    import(/* webpackPrefetch: true */ './click.js').then(({default:_})=>{
-        func()
-    })
-}) 
+import _ from 'lodash';
+import $ from 'jquery';
 
+const dom = $('<div>');
+dom.html(_.join(['dell','lee']),'---');
+$('body').append(dom);

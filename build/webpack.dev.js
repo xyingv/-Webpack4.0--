@@ -11,11 +11,31 @@ const devConfig={
         hot: true,//开启hout module replacement功能
         port:'8080' //本地打开的端口
     },
+    module:{
+        rules:[
+            {
+                test:/\.scss$/,
+                use:['style-loader',
+                {
+                    loader: 'css-loader',
+                    options:{
+                        importLoaders: 2,
+                        modules:true
+                    }
+                }
+                ,'sass-loader','postcss-loader']
+            },{
+                test:/\.css$/,
+                use:['style-loader','css-loader','postcss-loader']
+            }
+        ]
+    },
     plugins:[
         new webpack.HotModuleReplacementPlugin(),
     ],
-    optimization:{
-        usedExports:true //哪些模块被使用了再打包
+    output:{
+        filename:'[name].js',
+        chunkFilename:'[name].chunk.js',
     }
 }
 
