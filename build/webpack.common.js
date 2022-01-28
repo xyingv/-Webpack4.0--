@@ -1,6 +1,7 @@
 const path=require('path');
 const Htmlwebpackplugin=require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const webpack=require('webpack');
 
 module.exports={
     entry:{
@@ -10,7 +11,11 @@ module.exports={
         new Htmlwebpackplugin({
         template:'src/index.html'
         }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new webpack.ProvidePlugin({
+            $:'jquery',//当使用$时会自动引入jquery
+            _join:['lodash','join']
+        })
     ],
     optimization:{
         runtimeChunk:{
